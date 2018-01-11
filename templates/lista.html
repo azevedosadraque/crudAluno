@@ -1,0 +1,32 @@
+<div ng-include="'templates/_nav.html'"></div>
+<main class="container">
+	<div class="row">
+		<br>
+		<input type="text" ng-model="busca.email" placeholder="Busca">
+
+	</div>
+	<div class="row">
+		<table class="striped">
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>E-mail</th>
+					<th>Sexo</th>
+					<th>Religião</th>
+					<th>Data</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="aluno in alunos | filter:busca">
+					<td>{{aluno.nome}}</td>
+					<td>{{aluno.email}}</td>
+					<td>{{aluno.nota1}}</td>
+					<td>{{aluno.nota2}}</td>
+					<td>{{aluno.nota3}}</td>
+					<td>{{aluno.media}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</main>
+

@@ -1,0 +1,54 @@
+<div ng-include="'templates/_nav.html'"></div>
+<main class="container">
+	
+	<div class="row">
+		<form class="col s12">
+			<div class="row">
+				<div class="input-field col s6">
+					<input placeholder="Nome" id="nome" type="text" class="validate">
+				</div>
+				<div class="input-field col s6">
+					<input placeholder="Email" id="mail" type="text" class="validate">
+				</div>
+			</div>
+			<div class="row">
+				<form action="#">
+					<p>
+						<h5>Sexo &nbsp
+						<input name="group1" type="radio" id="test1" />
+						<label for="test1"><b>Masculino</b> &nbsp &nbsp</label>
+						<input name="group1" type="radio" id="test2" />
+						<label for="test2"><b>Feminino</b></label></h5> 
+					</p>
+				</form>
+			</div>
+			<div class="row">
+				<div class="input-field col s12">
+					<select>
+					<option value="" disabled selected>Escolha a religião</option>
+					<option value="1">Cristianismo</option>
+					<option value="2">Budismo</option>
+					<option value="3">Deboismo</option>
+					</select>
+					<label>Escolha a religião</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s4">
+					<label>Data</label>
+					<input type="text" class="datepicker">
+				</div>
+			</div>
+			</div>
+		</form>
+		<div class="modal-footer">
+	    	<a ng-if="!editando" ng-click="addAluno(Aluno)" class="waves-effect waves-light btn blue">Salvar</a>
+	    	<a ng-if="!editando" ng-click="addAluno(Aluno)" class="waves-effect waves-light btn red">Deletar</a>
+	    	<a ng-if="!editando" ng-click="addAluno(Aluno)" class="waves-effect waves-light btn light grey">Procurar</a>
+	    	<a ng-if="!editando" ng-click="addAluno(Aluno)" class="waves-effect waves-light btn light grey">Limpar</a>
+    	</div>
+	</div>
+
+
+
+</main>
