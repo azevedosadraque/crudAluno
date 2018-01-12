@@ -85,7 +85,9 @@ angular.module("meuModulo")
 	}
 
 	$scope.setReligiao = function(relig){
-		console.log(relig.name);
+		var e = document.getElementById("relig");
+		var itemSelecionado = e.options[e.selectedIndex].text;
+		console.log(itemSelecionado);
 	}
 
 
