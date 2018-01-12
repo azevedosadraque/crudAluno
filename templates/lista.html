@@ -2,7 +2,7 @@
 <main class="container">
 	<div class="row">
 		<br>
-		<input type="text" ng-model="busca.email" placeholder="Busca">
+		<input type="text" ng-model="busca.nome" placeholder="Busca">
 
 	</div>
 	<div class="row">
@@ -20,10 +20,9 @@
 				<tr ng-repeat="aluno in alunos | filter:busca">
 					<td>{{aluno.nome}}</td>
 					<td>{{aluno.email}}</td>
-					<td>{{aluno.nota1}}</td>
-					<td>{{aluno.nota2}}</td>
-					<td>{{aluno.nota3}}</td>
-					<td>{{aluno.media}}</td>
+					<td>{{aluno.sexo}}</td>
+					<td>{{aluno.religiao}}</td>
+					<td>{{aluno.data}}</td>
 				</tr>
 			</tbody>
 		</table>
