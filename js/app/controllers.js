@@ -1,5 +1,5 @@
 angular.module("meuModulo")
-.controller("indexController",function($scope){
+.controller("indexController",function($scope,lista){
 	$scope.titulo = "Cadastro";
 	$scope.alunos = [
 		{nome: "Camila",email:"camila@mail.com",nota1:65,nota2:80,nota3:55},
@@ -29,6 +29,10 @@ angular.module("meuModulo")
         
 		limpaForm();
 	};
+
+	var auxAluno;
+	var auxSexo;
+	var auxReligiao;
 	var contar2 = 0;
 	var media = function(Aluno){
 		console.log(contar2++);
@@ -36,16 +40,14 @@ angular.module("meuModulo")
 		return media.toFixed(2);
 	};
 
-	$scope.abreAddAluno = function(){
-		$scope.editando = false;
-		limpaForm();
-		$('#modal1').openModal();
+	$scope.addAluno = function(Aluno){
+		auxAluno = Aluno;
+		auxAluno.sexo = auxSexo;
+		auxAluno.religiao = auxReligiao;
+		lista.addAluno(auxAluno);
 	};
 
-	$scope.addAluno = function(Aluno){
-		Aluno.media = media(Aluno);
-		$scope.alunos.push(Aluno);
-	};
+
 
 	$scope.editando = false;
 	var alunoEditar;
@@ -81,13 +83,14 @@ angular.module("meuModulo")
 	};
 
 	$scope.recebeSexo = function(sexo){
-		console.log(sexo);
+		auxSexo = sexo;
 	}
 
 	$scope.setReligiao = function(relig){
 		var e = document.getElementById("relig");
 		var itemSelecionado = e.options[e.selectedIndex].text;
-		console.log(itemSelecionado);
+		auxReligiao = itemSelecionado;
+		console.log(auxReligiao);
 	}
 
 
@@ -95,18 +98,13 @@ angular.module("meuModulo")
 
 
 })
-.controller("contatoController",function($scope){
+.controller("contatoController",function($scope,lista){
 	$scope.titulo = "Lista";
-	$scope.alunos = [
-		{nome: "Vader",email:"vader@mail.com",sexo:"Masculino",religiao:"Cristianismo",data:"18/01/2015"},
-		{nome: "Luke",email:"luke@mail.com",sexo:"Masculino",religiao:"Budismo",data:"23/12/2014"},
-		{nome: "Leia",email:"leia@mail.com",sexo:"Feminino",religiao:"Deboismo",data:"30/01/2017"},
-		{nome: "Han",email:"han@mail.com",sexo:"Masculino",religiao:"Cristianismo",data:"15/10/1991"},
-		{nome: "Yoda",email:"yoda@mail.com",sexo:"Masculino",religiao:"Cristianismo",data:"11/11/2000"},
-	];
 
-	$scope.addAluno = function(Aluno){
-		$scope.alunos.push(Aluno);
+	
+	$scope.listarAluno = function(){
+		aluno = lista.getAlunos;
+		return alunos;
 	};
 
 

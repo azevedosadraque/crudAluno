@@ -17,7 +17,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="aluno in alunos | filter:busca">
+				<tr ng-repeat="aluno in listarAluno() | filter:busca">
 					<td>{{aluno.nome}}</td>
 					<td>{{aluno.email}}</td>
 					<td>{{aluno.sexo}}</td>
