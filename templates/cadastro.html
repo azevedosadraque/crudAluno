@@ -25,10 +25,10 @@
 			<div class="row">
 				<div class="input-field col s12" >
 					<select id="relig" ng-model="Aluno.religiao">
-						<option>Escolha a religião</option>
-						<option>Cristianismo</option>
-						<option>Budismo</option>
-						<option>Deboismo</option>
+					<option disabled selected>Escolha a religião</option>
+					<option>Cristianismo</option>
+					<option>Budismo</option>
+					<option>Deboismo</option>
 					</select>
 					<label>Escolha a religião</label>				
 				</div>
@@ -41,17 +41,8 @@
 			</div>
 		</form>
 		<div class="modal-footer">
-			<script type="text/javascript">
-				mostrar = function(){
-					console.log(Aluno.religião);
-					console.log(Aluno.sexo);
-				}
-				
-
-			</script>
-
-	    	<a ng-click="addAluno(Aluno)" class="waves-effect waves-light btn blue">Salvar</a>
-	    	<a ng-click="mostrar()"class="waves-effect waves-light btn red">Deletar</a>
+	    	<a ng-click="setReligiao(relig);saveAluno(Aluno)" class="waves-effect waves-light btn blue">Salvar</a>
+	    	<a class="waves-effect waves-light btn red">Deletar</a>
 	    	<a class="waves-effect waves-light btn light grey">Procurar</a>
 	    	<a ng-click="limpForm()" class="waves-effect waves-light btn light grey">Limpar</a>
     	</div>

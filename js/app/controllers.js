@@ -41,13 +41,15 @@ angular.module("meuModulo")
 		return media.toFixed(2);
 	};
 
-	$scope.addAluno = function(Aluno){
+	$scope.saveAluno = function(Aluno){
 		auxAluno = Aluno;
+		auxAluno.religiao = auxReligiao;
 		lista.addAluno(auxAluno);
 	};
 
 	$scope.limpForm = function(){
-		$scope.Aluno = {nome: "",email:""}
+		$scope.Aluno.data = null;  
+	    delete $scope.Aluno;
 	};
 
 
@@ -85,15 +87,12 @@ angular.module("meuModulo")
 		$scope.Aluno = {nome: "",email:"",nota1:'',nota2:'',nota3:'',media:''};
 	};
 
-	$scope.recebeSexo = function(sexo){
-		auxSexo = sexo;
-	}
-
 	$scope.setReligiao = function(relig){
 		var e = document.getElementById("relig");
 		var itemSelecionado = e.options[e.selectedIndex].text;
 		auxReligiao = itemSelecionado;
 		console.log(auxReligiao);
+		console.log(e.selectedIndex);
 	}
 
 
