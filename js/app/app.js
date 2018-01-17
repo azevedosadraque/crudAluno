@@ -26,10 +26,13 @@ angular.module("meuModulo",['ngRoute'])
     ];
     return {
         addAluno : function (aluno) {
-            alunos.push(aluno);;
+            alunos.push(aluno);
         },
         getAlunos : function () {
             return alunos;
+        },
+        removeAluno : function(indice){
+        	alunos.splice(indice,1);
         }
     }    
  });
