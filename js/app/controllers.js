@@ -30,6 +30,7 @@ angular.module("meuModulo")
 		limpaForm();
 	};
 
+	$scope.modeLimp;
 	var auxAluno;
 	var auxSexo;
 	var auxReligiao;
@@ -42,9 +43,11 @@ angular.module("meuModulo")
 
 	$scope.addAluno = function(Aluno){
 		auxAluno = Aluno;
-		auxAluno.sexo = auxSexo;
-		auxAluno.religiao = auxReligiao;
 		lista.addAluno(auxAluno);
+	};
+
+	$scope.limpForm = function(){
+		$scope.Aluno = {nome: "",email:""}
 	};
 
 

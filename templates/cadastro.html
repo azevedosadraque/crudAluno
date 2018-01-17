@@ -15,20 +15,20 @@
 				<form action="#">
 					<p>
 						<h5>Sexo &nbsp
-						<input name=sex type="radio" id="test1" ng-value="Masculino" ng-click="recebeSexo('Masculino')" />
+						<input name=sex type="radio" id="test1" value="Masculino" ng-model= "Aluno.sexo" />
 						<label for="test1"><b>Masculino</b> &nbsp &nbsp</label>
-						<input name=sex type="radio" id="test2" ng-value="Feminino" ng-click="recebeSexo('Feminino')" />
+						<input name=sex type="radio" id="test2" value="Feminino" ng-model= "Aluno.sexo"/>
 						<label for="test2"><b>Feminino</b></label></h5> 
 					</p>
 				</form>
 			</div>
 			<div class="row">
 				<div class="input-field col s12" >
-					<select id="relig">
-					<option value="" disabled selected>Escolha a religião</option>
-					<option value="1">Cristianismo</option>
-					<option value="2">Budismo</option>
-					<option value="3">Deboismo</option>
+					<select id="relig" ng-model="Aluno.religiao">
+						<option>Escolha a religião</option>
+						<option>Cristianismo</option>
+						<option>Budismo</option>
+						<option>Deboismo</option>
 					</select>
 					<label>Escolha a religião</label>				
 				</div>
@@ -41,10 +41,19 @@
 			</div>
 		</form>
 		<div class="modal-footer">
-	    	<a ng-click="setReligiao(relig);addAluno(Aluno)" class="waves-effect waves-light btn blue">Salvar</a>
-	    	<a class="waves-effect waves-light btn red">Deletar</a>
+			<script type="text/javascript">
+				mostrar = function(){
+					console.log(Aluno.religião);
+					console.log(Aluno.sexo);
+				}
+				
+
+			</script>
+
+	    	<a ng-click="addAluno(Aluno)" class="waves-effect waves-light btn blue">Salvar</a>
+	    	<a ng-click="mostrar()"class="waves-effect waves-light btn red">Deletar</a>
 	    	<a class="waves-effect waves-light btn light grey">Procurar</a>
-	    	<a class="waves-effect waves-light btn light grey">Limpar</a>
+	    	<a ng-click="limpForm()" class="waves-effect waves-light btn light grey">Limpar</a>
     	</div>
 	</div>
 
