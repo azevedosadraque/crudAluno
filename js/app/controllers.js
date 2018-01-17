@@ -29,12 +29,12 @@ angular.module("meuModulo")
 
 	$scope.saveAluno = function(Aluno){
 		auxAluno = Aluno;
-		auxAluno.religiao = auxReligiao;
+		auxAluno.religiao = auxReligiao; 
 		lista.addAluno(auxAluno);
 	};
 
 	$scope.limpForm = function(){
-		$scope.Aluno.data = null;  
+		$scope.Aluno.data = null;
 	    delete $scope.Aluno;
 	};
 
