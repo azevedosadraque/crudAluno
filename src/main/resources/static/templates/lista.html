@@ -1,0 +1,32 @@
+<div ng-include="'templates/_nav.html'"></div>
+<main class="container">
+	<div class="row">
+		<br>
+		<input type="text" ng-model="busca.nome" placeholder="Busca">
+	</div>
+	<div class="row">
+		<table class="striped">
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>E-mail</th>
+					<th>Sexo</th>
+					<th>Religião</th>
+					<th>Data</th>
+					<th>Ação</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="aluno in listarAluno() | filter:busca">
+					<td>{{aluno.nome}}</td>
+					<td>{{aluno.email}}</td>
+					<td>{{aluno.sexo}}</td>
+					<td>{{aluno.religiao}}</td>
+					<td>{{aluno.data}}</td>
+					<td><a ng-click="deletarAluno(aluno)"class="waves-effect waves-light btn red">Deletar</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</main>
+

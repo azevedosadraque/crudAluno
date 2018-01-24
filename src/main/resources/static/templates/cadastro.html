@@ -1,0 +1,49 @@
+<div ng-include="'templates/_nav.html'"></div>
+<main class="container">
+	
+	<div class="row">
+		<form class="col s12">
+			<div class="row">
+				<div class="input-field col s6">
+					<input placeholder="Nome" ng-model="Aluno.nome" type="text" class="validate">
+				</div>
+				<div class="input-field col s6">
+					<input placeholder="Email" Ng-model="Aluno.email" type="text" class="validate">
+				</div>
+			</div>
+			<div class="row">
+				<form action="#">
+					<p>
+						<h5>Sexo &nbsp
+						<input name=sex type="radio" id="test1" value="Masculino" ng-model= "Aluno.sexo" />
+						<label for="test1"><b>Masculino</b> &nbsp &nbsp</label>
+						<input name=sex type="radio" id="test2" value="Feminino" ng-model= "Aluno.sexo"/>
+						<label for="test2"><b>Feminino</b></label></h5> 
+					</p>
+				</form>
+			</div>
+			<div class="row">
+				<div class="input-field col s12" >
+					<select id="relig" ng-model="Aluno.religiao">
+					<option disabled selected>Escolha a religião</option>
+					<option>Cristianismo</option>
+					<option>Budismo</option>
+					<option>Deboismo</option>
+					</select>
+					<label>Escolha a religião</label>				
+				</div>
+			</div>			<div class="row">
+				<div class="col s4">
+					<label>Data</label>
+					<input type="text" class="datepicker" ng-model="Aluno.data">
+				</div>
+			</div>
+			</div>
+		</form>
+		<div class="modal-footer">
+	    	<a ng-click="setReligiao(relig);saveAluno(Aluno)" class="waves-effect waves-light btn blue">Salvar</a>
+	    	<a ng-click="limpForm()" href="#home" class="waves-effect waves-light btn light grey">Limpar</a>
+    	</div>
+	</div>
+
+</main>
