@@ -59,22 +59,19 @@ angular.module("meuModulo")
 .controller("contatoController",function($scope,lista,$http){
 	$scope.titulo = "Lista";
 
-	$scope.carregarLista = function(){
-		$scope.alunos;
-		$http({	method: 'GET',url: 'http://localhost:8080/cadastro'})
-		.then(function (response) {
-				$scope.alunos = response.data;
-		}, function(response) {
-				console.log("Falha ao buscar dados no Banco")
-		});
+	$scope.alunos;
+	$http({	method: 'GET',url: 'http://localhost:8080/cadastro'})
+	.then(function (response) {
+			$scope.alunos = response.data;
+	}, function(response) {
+			console.log("Falha ao buscar dados no Banco")
+	});
 
-		$scope.listarAluno = function(){
-			return $scope.alunos;
-			console.log($scope.alunos);
-		};
-	}
+	$scope.listarAluno = function(){
+		return $scope.alunos;
+		console.log($scope.alunos);
+	};
 
-	$scope.carregarLista()
 	
 
 	$scope.deletarAluno = function(Aluno){
