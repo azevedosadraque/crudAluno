@@ -1,6 +1,8 @@
 angular.module("meuModulo")
-.controller("indexController",function($scope,lista){
+.controller("indexController",function($scope,lista,$http){
 	$scope.titulo = "Cadastro";
+	$scope.alunos=[];
+	$scope.Aluno={};
 	
 
 	var init = function(){
@@ -10,12 +12,31 @@ angular.module("meuModulo")
 	 	});
 
 	 	$('.datepicker').pickadate({
-			selectMonths: true, // Creates a dropdown to control month
-			selectYears: 15, // Creates a dropdown of 15 years to control year,
-			today: 'Today',
-			clear: 'Clear',
-			close: 'Ok',
-			closeOnSelect: false // Close upon selecting a date,
+			selectMonths: true,
+			selectYears: 50,
+			// Título dos botões de navegação
+			labelMonthNext: 'Próximo Mês',
+			labelMonthPrev: 'Mês Anterior',
+			// Título dos seletores de mês e ano
+			labelMonthSelect: 'Selecione o Mês',
+			labelYearSelect: 'Selecione o Ano',
+			// Meses e dias da semana
+			monthsFull: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+			monthsShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+			weekdaysFull: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
+			weekdaysShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+			// Letras da semana
+			weekdaysLetter: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'],
+			//Botões
+			today: 'Hoje',
+			clear: 'Limpar',
+			close: 'Fechar',
+			// Formato da data que aparece no input
+			format: 'dd/mm/yyyy',
+			onClose: function() {
+			$(document.activeElement).blur()
+			}
+		
 		});
 	};
 
@@ -27,10 +48,37 @@ angular.module("meuModulo")
 	var auxReligiao;
 	var contar2 = 0;
 
-	$scope.saveAluno = function(Aluno){
-		auxAluno = Aluno;
-		auxAluno.religiao = auxReligiao; 
-		lista.addAluno(auxAluno);
+	$scope.saveAluno = function(){
+
+		console.log($scope.Aluno);
+
+		var aluno = $scope.Aluno;
+
+		var aux = aluno.data.toString() + ".";
+
+		var dd = aux.slice(0, -8);
+		var mm = aux.slice(3, -5);
+		var yyyy = aux.slice(6, -1);
+
+		var dataAux = yyyy + "+" + mm + "-" + dd;
+
+
+		
+
+		
+
+		$http({
+        url: 'http://localhost:8080/cadastro',
+        method: "POST",
+        data: { 'nome' : aluno.nome, 'email' : aluno.email, 'sexo': aluno.sexo, 'religiao' : aluno.religiao, 'data': aluno.data }
+    })
+    .then(function successCallBack(response) {
+            // success
+    }, 
+    function(response) { // optional
+            // failed
+    });
+
 	};
 
 	$scope.limpForm = function(){
@@ -48,7 +96,7 @@ angular.module("meuModulo")
 	$scope.setReligiao = function(relig){
 		var e = document.getElementById("relig");
 		var itemSelecionado = e.options[e.selectedIndex].text;
-		auxReligiao = itemSelecionado;
+		$scope.Aluno.religiao = itemSelecionado;
 		console.log(auxReligiao);
 		console.log(e.selectedIndex);
 	}

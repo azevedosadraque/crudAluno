@@ -24,7 +24,7 @@ public class AlunoController {
 	
 	//End Point
 	
-	@RequestMapping(method=RequestMethod.POST, value="/cadastro", consumes=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(method=RequestMethod.POST, value="/cadastro", consumes=MediaType.APPLICATION_JSON_VALUE,produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Aluno> cadastrarAluno(@RequestBody Aluno aluno ){
 		
 		Aluno alunoCadastrado = alunoService.cadastrar(aluno);

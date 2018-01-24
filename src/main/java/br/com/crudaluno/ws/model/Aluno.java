@@ -1,6 +1,5 @@
 package br.com.crudaluno.ws.model;
 
-import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,7 +18,7 @@ public class Aluno {
 	private String email;
 	private String sexo;
 	private String religiao;
-	private Date data = new Date();
+	private String data;
 	
 	public Integer getId() {
 		return Id;
@@ -51,10 +50,10 @@ public class Aluno {
 	public void setReligiao(String religiao) {
 		this.religiao = religiao;
 	}
-	public Date getData() {
+	public String getData() {
 		return data;
 	}
-	public void setData(Date data) {
+	public void setData(String data) {
 		this.data = data;
 	}
 

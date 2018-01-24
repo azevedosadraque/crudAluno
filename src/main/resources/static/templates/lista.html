@@ -22,7 +22,7 @@
 					<td>{{aluno.email}}</td>
 					<td>{{aluno.sexo}}</td>
 					<td>{{aluno.religiao}}</td>
-					<td>{{aluno.data}}</td>
+					<td>{{aluno.data | date:'dd/MM/yyyy'}}</td>
 					<td><a ng-click="deletarAluno(aluno)"class="waves-effect waves-light btn red">Deletar</a></td>
 				</tr>
 			</tbody>
