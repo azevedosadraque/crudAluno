@@ -68,7 +68,7 @@ angular.module("meuModulo")
 		
 
 		$http({
-        url: 'http://localhost:8080/cadastro',
+        url: 'https://appcrudalu.herokuapp.com/cadastro',
         method: "POST",
         data: { 'nome' : aluno.nome, 'email' : aluno.email, 'sexo': aluno.sexo, 'religiao' : aluno.religiao, 'data': aluno.data }
     })
@@ -111,7 +111,7 @@ angular.module("meuModulo")
 	var del;
 
 	$scope.alunos;
-	$http({	method: 'GET',url: 'http://localhost:8080/cadastro'})
+	$http({	method: 'GET',url: 'https://appcrudalu.herokuapp.com/cadastro'})
 	.then(function (response) {
 			$scope.alunos = response.data;
 	}, function(response) {
@@ -130,7 +130,7 @@ angular.module("meuModulo")
 		var aux2 = aluno.id;
 		console.log("aqui id  "+aux2);
 		$scope.alunos;
-		$http({	method: 'DELETE',url: 'http://localhost:8080/cadastro/'+aux2})
+		$http({	method: 'DELETE',url: 'https://appcrudalu.herokuapp.com/cadastro/'+aux2})
 		.then(function (response) {
 			$scope.alunos = response.data;
 		}, function(response) {
