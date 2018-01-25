@@ -19,6 +19,7 @@ public class Aluno {
 	private String sexo;
 	private String religiao;
 	private String data;
+	private Integer del;
 	
 	public Integer getId() {
 		return Id;
@@ -55,6 +56,12 @@ public class Aluno {
 	}
 	public void setData(String data) {
 		this.data = data;
+	}
+	public Integer getDel() {
+		return del;
+	}
+	public void setDel(Integer del) {
+		this.del = del;
 	}
 
 

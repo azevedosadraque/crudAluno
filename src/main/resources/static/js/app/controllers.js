@@ -106,6 +106,9 @@ angular.module("meuModulo")
 })
 .controller("contatoController",function($scope,lista,$http){
 	$scope.titulo = "Lista";
+	var Id;
+	var listaAlunos=[];
+	var del;
 
 	$scope.alunos;
 	$http({	method: 'GET',url: 'http://localhost:8080/cadastro'})
@@ -118,20 +121,26 @@ angular.module("meuModulo")
 	$scope.listarAluno = function(){
 		return $scope.alunos;
 		console.log($scope.alunos);
+
 	};
 
-	
 
-	$scope.deletarAluno = function(Aluno){
-		for(var index in alunos){
-			var aux = alunos[index];
-			console.log(index);
-			if(Aluno === aux){
-				console.log("aqui");
-				lista.removeAluno(index);
-			}
-		}
-	};
+
+	$scope.deletarAluno = function(aluno){
+		var aux2 = aluno.id;
+		console.log("aqui id  "+aux2);
+		$scope.alunos;
+		$http({	method: 'DELETE',url: 'http://localhost:8080/cadastro/'+aux2})
+		.then(function (response) {
+			$scope.alunos = response.data;
+		}, function(response) {
+			console.log("Falha ao buscar dados no Banco")
+		});
+		window.location.reload();
+
+
+	}
+
 
 
 })

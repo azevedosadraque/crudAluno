@@ -25,9 +25,11 @@ angular.module("meuModulo",['ngRoute'])
 	var alunos;
 
 
+
+
     return {
-        addAluno : function (aluno) {
-            alunos.push(aluno);
+        reset : function (aluno) {
+            $route.reload();
         },
         getAlunos : function () {
         	console.log(alunos);
