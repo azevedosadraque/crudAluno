@@ -3,6 +3,7 @@ angular.module("meuModulo")
 	$scope.titulo = "Cadastro";
 	$scope.alunos=[];
 	$scope.Aluno={};
+	$scope.msgAlert = null;
 	
 
 	var init = function(){
@@ -70,7 +71,7 @@ angular.module("meuModulo")
     })
     .then(function successCallBack(response) {
             // success
-            window.alert("Cadastro realizado com sucesso!");
+            $scope.msgAlert = "Aluno cadastrado com sucesso";
 
     }, 
     function(response) { // optional
@@ -107,6 +108,7 @@ angular.module("meuModulo")
 	var Id;
 	var listaAlunos=[];
 	var del;
+	$scope.msgAlert;
 
 	$scope.alunos;
 	$http({	method: 'GET',url: 'https://appcrudalu.herokuapp.com/cadastro'})
@@ -131,11 +133,11 @@ angular.module("meuModulo")
 		$http({	method: 'DELETE',url: 'https://appcrudalu.herokuapp.com/cadastro/'+aux2})
 		.then(function (response) {
 			$scope.alunos = response.data;
-			window.alert("Deletado");
 		}, function(response) {
 			console.log("Falha ao buscar dados no Banco")
 		});
 		window.location.reload();
+		$scope.msgAlert="Deletado com seucesso";
 
 
 	}
