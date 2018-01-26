@@ -131,6 +131,7 @@ angular.module("meuModulo")
 		$http({	method: 'DELETE',url: 'https://appcrudalu.herokuapp.com/cadastro/'+aux2})
 		.then(function (response) {
 			$scope.alunos = response.data;
+			window.alert("Deletado");
 		}, function(response) {
 			console.log("Falha ao buscar dados no Banco")
 		});
