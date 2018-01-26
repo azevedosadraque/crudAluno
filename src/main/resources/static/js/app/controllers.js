@@ -62,12 +62,6 @@ angular.module("meuModulo")
 
 		var dataAux = yyyy + "+" + mm + "-" + dd;
 
-		window.alert("Cadastro realizado com sucesso!");
-
-
-		
-
-		
 
 		$http({
         url: 'https://appcrudalu.herokuapp.com/cadastro',
@@ -76,6 +70,8 @@ angular.module("meuModulo")
     })
     .then(function successCallBack(response) {
             // success
+            window.alert("Cadastro realizado com sucesso!");
+
     }, 
     function(response) { // optional
             // failed
