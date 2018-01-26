@@ -62,6 +62,8 @@ angular.module("meuModulo")
 
 		var dataAux = yyyy + "+" + mm + "-" + dd;
 
+		window.alert("Cadastro realizado com sucesso!");
+
 
 		
 
