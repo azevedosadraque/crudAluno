@@ -70,7 +70,7 @@ angular.module("meuModulo")
     })
     .then(function successCallBack(response) {
             // success
-            window.alert("Cadastro realizado com sucesso!");
+            window.alert("Cadastro realizado com sucessoo!");
 
     }, 
     function(response) { // optional
