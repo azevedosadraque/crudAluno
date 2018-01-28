@@ -104,6 +104,18 @@ angular.module("meuModulo")
 
 })
 .controller("contatoController",function($scope,lista,$http){
+	
+	$scope.carregarAluno = function(){
+		
+		$http({	method: 'GET',url: 'https://appcrudalu.herokuapp.com/cadastro'})
+		.then(function (response) {
+				$scope.alunos = response.data;
+		}, function(response) {
+				console.log("Falha ao buscar dados no Banco")
+		});
+
+	}
+	
 	$scope.titulo = "Lista";
 	var Id;
 	var listaAlunos=[];
@@ -111,12 +123,7 @@ angular.module("meuModulo")
 	$scope.msgAlert;
 
 	$scope.alunos;
-	$http({	method: 'GET',url: 'https://appcrudalu.herokuapp.com/cadastro'})
-	.then(function (response) {
-			$scope.alunos = response.data;
-	}, function(response) {
-			console.log("Falha ao buscar dados no Banco")
-	});
+	
 
 	$scope.listarAluno = function(){
 		return $scope.alunos;
@@ -127,12 +134,14 @@ angular.module("meuModulo")
 
 
 	$scope.deletarAluno = function(aluno){
+		
+		
 		var aux2 = aluno.id;
 		console.log("aqui id  "+aux2);
 		$scope.alunos;
 		$http({	method: 'DELETE',url: 'https://appcrudalu.herokuapp.com/cadastro/'+aux2})
 		.then(function (response) {
-			$scope.alunos = response.data;
+			$scope.carregarAluno();
 		}, function(response) {
 			console.log("Falha ao buscar dados no Banco")
 		});
