@@ -124,7 +124,7 @@ angular.module("meuModulo")
 
 	$scope.alunos;
 	
-	$scope carregarAluno();
+	$scope.carregarAluno();
 	
 
 	$scope.listarAluno = function(){
