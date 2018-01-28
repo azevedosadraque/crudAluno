@@ -145,7 +145,6 @@ angular.module("meuModulo")
 		}, function(response) {
 			console.log("Falha ao buscar dados no Banco")
 		});
-		window.location.reload();
 		$scope.msgAlert="Deletado com seucesso";
 
 
